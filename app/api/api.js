@@ -50,7 +50,6 @@ export async function getClimbs(id) {
     SELECT * FROM exercises where climber_id = ${id} and
     week = (CURRENT_DATE - ((EXTRACT(dow FROM CURRENT_DATE)::int+6)%7))
      `
-    console.log(climbs)
     return climbs
 }   
 

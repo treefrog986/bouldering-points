@@ -9,9 +9,10 @@ import { useContext, useEffect } from "react";
 export default function Home({loginUser, signUp}) {
   const [logIn, toggleLogin] = useBool();
   const [signup, toggleSignup] = useBool();
-  const { setUser } = useContext(ClimbContext);
+  const { setUser, clearClimbs } = useContext(ClimbContext);
   useEffect(() => {
     setUser(null);
+    clearClimbs();
   },[])
   return (
     <Container

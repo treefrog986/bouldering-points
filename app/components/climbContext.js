@@ -20,8 +20,20 @@ export function ClimbContextProvider({ children , getClimbs, putClimbs}) {
       pink:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},
       white:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},  
     })
+    const clearClimbs = () => {
+    setClimbs({
+      yellow:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},
+      red:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},
+      green:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},
+      purple:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},
+      orange:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},
+      black:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},
+      blue:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},     
+      pink:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},
+      white:{completed: {count: 0, climb_id: null}, attempted: {count: 0, climb_id: null}},  
+    })
+    }
     const fetchClimbs = async (id)=>{
-      console.log(user)
       const res = await getClimbs(id)
       setClimbs(prev=>{
         for (const climb of res) {
@@ -46,11 +58,10 @@ export function ClimbContextProvider({ children , getClimbs, putClimbs}) {
         }));
       };
       const saveClimbs = async () => {
-        const res = await putClimbs(user.id, climbs, getMonday())
-        console.log(res)
+        await putClimbs(user.id, climbs)
       }
   return (
-    <ClimbContext.Provider value={{ user, setUser, climbs, setClimbs, fetchClimbs, editClimbs, saveClimbs, getMonday }}>
+    <ClimbContext.Provider value={{ user, setUser, climbs, setClimbs, fetchClimbs, editClimbs, saveClimbs, getMonday, clearClimbs }}>
       {children}
     </ClimbContext.Provider>
   );
