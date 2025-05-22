@@ -1,11 +1,10 @@
 "use client"
 import { Dialog, DialogTitle, TextField, DialogContent, Stack, Button, Alert } from "@mui/material";
 import { useEffect, useState } from "react";
-import { signUp } from "./api/api";
 import { useRouter } from "next/navigation";
 
 
-export default function SignupDialog({signup, signupBool, setUser}){
+export default function SignupDialog({signup, signupBool, setUser, signUp}){
     const router = useRouter()
     const [credentials, setCredentials] = useState({
         email:"",

@@ -3,11 +3,10 @@ import { Alert, Dialog, DialogContent, DialogTitle, Stack, TextField } from "@mu
 import { useEffect, useState, useContext } from "react"
 import { ClimbContext } from "./components/climbContext"
 import { Button}from "@mui/material"
-import { loginUser } from "./api/api"
 import { useRouter } from "next/navigation"
 
 
-export default function LoginDialog({login, loginBool, setUser}){
+export default function LoginDialog({login, loginBool, setUser, loginUser}){
   const router = useRouter()
     const [credentials, setCredentials] = useState({
         email:"",

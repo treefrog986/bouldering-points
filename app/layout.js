@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClimbContextProvider } from "./components/climbContext";
+import { getClimbs, putClimbs } from "./api/api";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
     <div>
-    <ClimbContextProvider>
+    <ClimbContextProvider getClimbs={getClimbs} putClimbs={putClimbs}>
         {children}
 </ClimbContextProvider>
 </div> 

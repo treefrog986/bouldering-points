@@ -1,9 +1,7 @@
 "use client"
 import { createContext, use, useContext, useEffect, useState } from "react";
-import { getClimbs, putClimbs } from "../api/api";
-
 export const ClimbContext = createContext()
-export function ClimbContextProvider({ children }) {
+export function ClimbContextProvider({ children , getClimbs, putClimbs}) {
     const getZero = x=>(x<10?`0${x}`:x)
     const getMonday = ()=>{
         var prevMonday = new Date();
