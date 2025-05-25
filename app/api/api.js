@@ -1,7 +1,7 @@
 "use server"
 import sql from "./db";
 const bcrypt = require('bcrypt')
-
+//hello
 export async function signUp(credentials){
     const {email, password, username} = credentials
     const hashPass = await bcrypt.hash(password, 10)
