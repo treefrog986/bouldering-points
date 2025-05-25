@@ -31,8 +31,9 @@ useEffect(()=>{
 , [user])
   const menuItems = [
     { text: "Home", path: "/dashboard", icon: <HomeIcon /> },
-    { text: "Logout", path: "/"},
     { text: "Stats", path: "/dashboard/stats" },
+    { text: "Logout", path: "/"},
+
   ];
 
   return (
