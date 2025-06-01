@@ -3,14 +3,14 @@ import { useContext, useState, useEffect } from "react";
 import { ClimbContext } from "@/app/components/climbContext";
 import { BarChart, PieChart } from "@mui/x-charts";
 import { Box, Stack, Typography, Paper } from "@mui/material";
-import { getWeeksClimb } from "@/app/api/api";
+import { getClimberWeeks} from "@/app/api/api";
 
 export default function Stats() {
   const { user, climbs } = useContext(ClimbContext);
   const [stats, setStats] = useState(null);
-
+  const [weeks, setWeeks] = useState(null);
   async function getStats() {
-    const weeks = await getWeeksClimb(user.id);
+    const weeks = await getClimberWeeks(user.id);
     const currentWeek = Object.keys(climbs)
       .reduce((p, c) => {
         return [
@@ -36,6 +36,8 @@ export default function Stats() {
         },
         { attempted: {}, completed: {} }
       );
+      setWeeks(weeks)
+      console.log(weeks)
     setStats({ currentWeek: currentWeek, weeks: weeks });
   }
 

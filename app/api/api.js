@@ -78,9 +78,11 @@ export async function putClimbs(id, climbs) {
       }
 }
 
-export async function getWeeksClimb(id) {
+
+
+export async function getClimberWeeks(id) {
   const weeks = await sql`
-  select week, sum(count) as climbs
+  select to_char(week, 'MM/DD/YYYY') as week, sum(count) as climbs
   from exercises
   where climber_id=${id}
   group by week
