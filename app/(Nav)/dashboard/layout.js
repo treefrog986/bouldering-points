@@ -18,6 +18,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { useRouter } from "next/navigation";
 import { use, useContext, useState, useEffect } from "react";
 import { ClimbContext } from "@/app/components/climbContext";
+import path from "path";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -31,8 +32,11 @@ useEffect(()=>{
 , [user])
   const menuItems = [
     { text: "Home", path: "/dashboard", icon: <HomeIcon /> },
-    { text: "Logout", path: "/"},
     { text: "Stats", path: "/dashboard/stats" },
+    {text: "Beta Patch Notes", path: "/dashboard/patchNotes"},
+    { text: "Logout", path: "/"},
+  
+
   ];
 
   return (
@@ -96,7 +100,7 @@ useEffect(()=>{
           flexGrow: 1,
           backgroundColor: "#f5f5f5",
           padding: 3,
-          marginLeft: "180px" , // Adjust content based on drawer state
+          marginLeft: "170px" , // Adjust content based on drawer state
           transition: "margin-left 0.3s ease", // Smooth transition for drawer
         }}
       >
